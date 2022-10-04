@@ -1,4 +1,5 @@
 let elementForInsertBooks = document.getElementById('livros');
+let elementWithTotalValuesOfBooksAvaliable = document.getElementById('valor_total_livros_disponiveis');
 
 //metodo para mostrar elementos na tela
 

@@ -10,8 +10,26 @@ function filterBooks() {
     const categoria = elementBtn.value;
     console.log(categoria);
     console.log(bookList);
-    let filteredBooks = categoria == 'disponiveis' ? bookList.filter(book => book.quantidade > 0) : bookList.filter(book => {
-        return book.categoria == categoria;
-    })
+    let filteredBooks = categoria == 'disponiveis' ? filteredBookByDisponibility() : filterBooksByCategory(categoria);
     showBooksOnScreen(filteredBooks);
+    if(categoria == 'disponiveis'){
+        let calcDisponibleBooks = calcTotalValueDisponibleBooks(filteredBooks);
+        showTotalValueOfDisponibleBooks(calcDisponibleBooks);
     }
+}
+
+function filterBooksByCategory(categoria) {
+    return bookList.filter(book => book.categoria == categoria);
+}
+
+function filteredBookByDisponibility() {
+    return bookList.filter(book => book.quantidade > 0);
+}
+
+function showTotalValueOfDisponibleBooks(totalValue) {
+    elementWithTotalValuesOfBooksAvaliable.innerHTML = `
+    <div class="livros__disponiveis">
+      <p>Todos os livros disponíveis por R$ <span id="valor">${totalValue}</span></p>
+    </div>
+    `
+}
