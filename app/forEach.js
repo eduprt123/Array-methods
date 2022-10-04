@@ -1,6 +1,9 @@
-const elementForInsertBooks = document.getElementById('livros');
+let elementForInsertBooks = document.getElementById('livros');
+
+//metodo para mostrar elementos na tela
 
 function showBooksOnScreen(bookList) {
+    elementForInsertBooks.innerHTML = '';
     bookList.forEach(book => {
         elementForInsertBooks.innerHTML += 
             `
