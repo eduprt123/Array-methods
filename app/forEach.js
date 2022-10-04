@@ -5,10 +5,12 @@ let elementForInsertBooks = document.getElementById('livros');
 function showBooksOnScreen(bookList) {
     elementForInsertBooks.innerHTML = '';
     bookList.forEach(book => {
+        // criando verificação de disponibilidades
+        let avaliable = book.quantidade > 0 ? 'livro__imagens' : 'livros__imagens indisponivel';
         elementForInsertBooks.innerHTML += 
             `
             <div class="livro">
-                <img class="livro__imagens" src="${book.imagem}" alt="${book.alt}" />
+                <img class="${avaliable}" src="${book.imagem}" alt="${book.alt}" />
                 <h2 class="livro__titulo">
                     ${book.titulo}
                 </h2>
@@ -22,4 +24,12 @@ function showBooksOnScreen(bookList) {
     })
 }
 
+// function verifyAvaliableBook(book){
+//    if(book.quantidade > 0)
+//     // if(book.quantidade > 0){
+//     //     return 'livro__imagens';
+//     // }else{
+//     //     return 'livros__imagens indisponivel';
+//     // }
+// }
 

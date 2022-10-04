@@ -10,7 +10,7 @@ function filterBooks() {
     const categoria = elementBtn.value;
     console.log(categoria);
     console.log(bookList);
-    let filteredBooks = bookList.filter(book => {
+    let filteredBooks = categoria == 'disponiveis' ? bookList.filter(book => book.quantidade > 0) : bookList.filter(book => {
         return book.categoria == categoria;
     })
     showBooksOnScreen(filteredBooks);
